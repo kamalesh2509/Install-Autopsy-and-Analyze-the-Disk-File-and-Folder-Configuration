@@ -1,38 +1,143 @@
-## AIM:
-To install Autopsy on Kali Linux and analyze disk images, files, and folder configurations for digital forensic purposes.
+# Install Autopsy and Analyze the Disk File and Folder Configuration
+
+## AIM
+To install **Autopsy** and use it to analyze the disk’s file and folder configuration for forensic investigation.
+
+## REQUIREMENTS
+- **Operating System**: Windows 10/11, macOS, or Linux
+- **Tools**:  
+  - [Autopsy Digital Forensics Platform](https://www.autopsy.com/)  
+  - Optional: Sleuth Kit CLI tools for deeper analysis
+- **Test Data**: Disk image file (`.dd`, `.img`, `.E01`)
+
+## ARCHITECTURE DIAGRAM
+
+![image](https://github.com/user-attachments/assets/6dc4288a-907e-4861-96b1-6b6ca4598a5f)
+
 
 ## DESIGN STEPS:
 ### Step 1:
-Install Autopsy using the terminal with the command:
+Download Autopsy from the official website and install it on your system.
 
 ### Step 2:
-Launch Autopsy from the terminal or application menu and create a new case.
+Launch Autopsy and create a new case.
 
 ### Step 3:
-Add a disk image or file to the case and analyze the contents such as deleted files, metadata, and folder structure.
+Add your disk image or physical drive as the data source.
 
-## PROGRAM:<img width="1920" height="1080" alt="Screenshot (278)" src="https://github.com/user-attachments/assets/42b8a1a0-95c4-48d2-9ecb-befb384e7d92" /><img width="1920" height="1080" alt="Screenshot (281)" src="https://github.com/user-attachments/assets/a5898f4f-411f-497a-90d5-c24329e07fa6" />
-1. Autopsy Web Interface
-Launch Autopsy:
+### Step 4:
+Allow Autopsy to run its built-in ingest modules (file system analysis, hash lookup, keyword search, metadata extraction).
 
-You can start Autopsy via terminal, which opens the web interface:
+### Step 5:
+View the file and folder hierarchy in the left-hand tree panel.
 
-```bash
-autopsy
-```
-It will be accessible at ```http://localhost:9999``` by default in your browser.
+### Step 6:
+Export or recover files if required for the investigation.
+
+## PROGRAM(Windows)
+
+1. Download Autopsy from autopsy.com.
+2. Install and launch the application.
+3. Select **New Case → Name your case → Choose case folder**.
+4. Click Add **Data Source → Select Disk Image → Browse to file**.
+5. Choose ingest modules (file system, metadata, hash lookup, keyword search).
+6. Wait for processing to finish.
+7. Explore file/folder structure in the navigation pane.
+8.Export selected files for further examination.
 
 ## OUTPUT:
-<img width="1920" height="1080" alt="Screenshot (278)" src="https://github.com/user-attachments/assets/3e808d35-27d4-48ba-90c5-6ecc2ea192a0" />
-<img width="1920" height="1080" alt="Screenshot (280)" src="https://github.com/user-attachments/assets/6ea47927-7cbe-40ac-82c0-f05f7deddad9" />
 
-<img width="1920" height="1080" alt="Screenshot (281)" src="https://github.com/user-attachments/assets/b5533c37-b318-44ff-8a7b-b1bf023b7340" />
+### CREATING A DISK PARTITION:
 
-<img width="1920" height="1080" alt="Screenshot (282)" src="https://github.com/user-attachments/assets/af7cef35-ec2b-4187-8a3b-7453574d133d" />
+#### Step 1: Open File Manager
+```
+Right-click This PC → Click Show More Options.
+
+Select Manage.
+```
+
+#### Step 2: Access Disk Management
+```
+In the new window, select Disk Management.
+```
+
+<img width="285" height="526" alt="437154922-f5f69c3b-f2d9-4171-b5cc-fa4a589597d5" src="https://github.com/user-attachments/assets/9cc6f801-862d-4895-aa0d-f113daabf114" />
+
+
+#### Step 3: Shrink the C Drive to Allocate Space
+```
+Locate C: drive → Right-click → Select Shrink Volume.
+
+Enter the amount of memory to allocate for the new disk.
+
+Click Shrink.
+```
+
+<img width="1919" height="1079" alt="Screenshot 2025-09-06 142216" src="https://github.com/user-attachments/assets/a70beea6-9e8b-434f-91eb-31a37f8e1cea" />
 
 
 
+#### Step 4: Create a New Volume
+```
+Right-click on the newly unallocated space → Select New Simple Volume.
+
+Follow the wizard and assign a disk name.
+
+Click Finish to complete the process.
+
+The new Disk Partition is created
+```
+
+
+<img width="1919" height="1079" alt="Screenshot 2025-09-06 141839" src="https://github.com/user-attachments/assets/c9b86285-f3ef-48bb-b1b7-d99852360075" />
+
+
+
+### ANALYSING FILES USING AUTOPSY:
+
+#### Step 1: Create a Case
+```
+Enter a case name and select a location to store the case data.
+
+Provide a case number and investigator details if required.
+```
+
+<img width="1919" height="1079" alt="Screenshot 2025-09-06 142818" src="https://github.com/user-attachments/assets/8966c252-42d5-4174-8e2f-16187315bc33" />
+
+
+
+#### Step 2: Add a Data Source
+```
+Click "Add Data Source" and choose the type:
+
+Select the data source and let Autopsy process it.
+```
+
+#### Step 3: File Analysis
+
+##### Application
+<img width="1919" height="1018" alt="Screenshot 2025-09-04 133502" src="https://github.com/user-attachments/assets/3153d6e7-b49f-4124-817d-5554948ba04c" />
+
+
+<img width="1919" height="1079" alt="Screenshot 2025-09-04 133534" src="https://github.com/user-attachments/assets/80e8201b-e0da-45bb-b750-9935d8e3aed5" />
+
+##### File Metadata
+
+<img width="1915" height="1024" alt="Screenshot 2025-09-04 133523" src="https://github.com/user-attachments/assets/6b9e8325-0f4e-421a-b74c-684edc3d673d" />
+
+
+
+##### Click OS Account.
+
+
+<img width="1910" height="1079" alt="Screenshot 2025-09-04 133546" src="https://github.com/user-attachments/assets/f205dc35-1ba1-4dd0-b927-a460054776b6" />
+
+
+### GENERATE REPORT:
+
+<img width="1919" height="1079" alt="Screenshot 2025-09-04 133727" src="https://github.com/user-attachments/assets/44f0ac4f-023e-4b0f-9c79-4cd7c4c75acf" />
 
 
 ## RESULT:
+
 Autopsy was installed successfully and used to analyze disk, file, and folder configuration for forensic investigation.
